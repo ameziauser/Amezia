@@ -25,10 +25,10 @@
         }
 
         :root {
-            --bg-caramel-light: #f4e6d0; /* Jouw luxe lichte caramel tint */
-            --bg-caramel-solid: #e5cca4; /* Diepere caramel voor kaarten */
+            --bg-caramel-light: #f4e6d0;
+            --bg-caramel-solid: #e5cca4;
             --text-dark: #231214;
-            --brand-dark: #3a1c20; /* Diep bordeaux/bruin */
+            --brand-dark: #3a1c20;
             --white: #ffffff;
             --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -87,7 +87,7 @@
             letter-spacing: 1.5px;
         }
 
-        /* EXCLUSIEVE VIP BUTTON (Vervangt saaie winkelwagen) */
+        /* EXCLUSIEVE VIP BUTTON */
         .nav-order-btn {
             background-color: var(--brand-dark);
             color: var(--white);
@@ -169,7 +169,7 @@
             opacity: 0.5;
         }
 
-        /* Submenu's (Gefilterd op jouw zomer items) */
+        /* Submenu's */
         .submenu-panel {
             position: absolute;
             top: 0;
@@ -230,10 +230,9 @@
             cursor: pointer;
         }
 
-        /* HERO SECTIE (PREMIUM SUMMER VIBES) */
+        /* HERO SECTIE */
         .hero {
             position: relative;
-            /* Luxe, high-end resort sfeerfoto */
             background: linear-gradient(rgba(35, 18, 20, 0.15), rgba(35, 18, 20, 0.2)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
             height: 65vh;
             min-height: 400px;
@@ -273,7 +272,7 @@
             transform: scale(1.02); 
         }
 
-        /* BRAND MANIFESTO / EXCLUSIVITEITSTEXT */
+        /* BRAND MANIFESTO */
         .manifesto {
             text-align: center;
             padding: 60px 20px;
@@ -299,8 +298,8 @@
             background-color: rgba(229, 204, 164, 0.3);
             padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid rgba(5a, 2c, 32, 0.05);
-            border-bottom: 1px solid rgba(5a, 2c, 32, 0.05);
+            border-top: 1px solid rgba(58, 28, 32, 0.05);
+            border-bottom: 1px solid rgba(58, 28, 32, 0.05);
         }
         .order-steps {
             display: flex;
@@ -327,9 +326,9 @@
             opacity: 0.85;
         }
 
-        /* PRODUCTEN GRID (ALLEEN SHORTS, T-SHIRTS & SCHOENEN) */
+        /* PRODUCTEN GRID - DE FIX VOOR 2 NAAST ELKAAR */
         .main-section {
-            padding: 40px 20px 80px;
+            padding: 40px 15px 80px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -340,14 +339,24 @@
             font-size: 2rem;
             font-weight: 400;
             margin-bottom: 45px;
+            margin-top: 40px;
             color: var(--brand-dark);
             letter-spacing: 0.5px;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            /* DIT ZORGT VOOR 2 FOTO'S NAAST ELKAAR OP MOBIEL! */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px;
+        }
+
+        /* Vanaf tablets worden het er 3 of 4 naast elkaar */
+        @media (min-width: 768px) {
+            .products-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        }
+        @media (min-width: 1024px) {
+            .products-grid { grid-template-columns: repeat(4, 1fr); gap: 30px; }
         }
 
         .product-card {
@@ -376,7 +385,7 @@
         }
 
         .product-info {
-            padding: 20px 15px;
+            padding: 15px 10px;
             text-align: center;
             flex-grow: 1;
             display: flex;
@@ -386,9 +395,10 @@
 
         .product-name {
             font-family: var(--font-serif);
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: var(--text-dark);
             margin-bottom: 6px;
+            line-height: 1.3;
         }
 
         .product-price {
@@ -403,7 +413,7 @@
             background-color: var(--brand-dark);
             color: var(--white);
             border: none;
-            padding: 12px 20px;
+            padding: 10px 15px;
             font-family: var(--font-sans);
             font-size: 0.85rem;
             font-weight: 600;
@@ -463,7 +473,7 @@
             display: block;
         }
 
-        /* PROFESSIONAL FOOTER (ZONDER BANKLOGO'S) */
+        /* PROFESSIONAL FOOTER */
         footer {
             background-color: var(--brand-dark);
             color: var(--white);
@@ -512,9 +522,8 @@
 
         .social-icons { display: flex; gap: 20px; font-size: 1.1rem; }
 
-        /* RESPONSIVENESS */
+        /* RESPONSIVENESS VOOR KLEINE SCHERMEN */
         @media (max-width: 992px) {
-            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .footer-grid { grid-template-columns: 1fr; gap: 35px; text-align: center; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
@@ -525,7 +534,6 @@
             .hero-content h1 { font-size: 2.2rem; }
             .manifesto h2 { font-size: 1.7rem; }
             .section-title { font-size: 1.6rem; }
-            .products-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; padding: 0 10px; }
             .order-steps { flex-direction: column; gap: 20px; }
         }
     </style>
@@ -541,14 +549,13 @@
                 <span></span>
             </button>
             <div class="logo">Amezia</div>
-            <!-- Professioneel Direct Bestellen via WhatsApp / Bellen -->
             <a href="tel:+31612345678" class="nav-order-btn">
                 <span>📞 Order Service</span>
             </a>
         </nav>
     </header>
 
-    <!-- HET NIEUWE INTERACTIEVE MOBIELE MENU -->
+    <!-- HET NIEUWE INTERACTIEVE MOBIELE MENU (Nieuwe menu namen!) -->
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="menu-header">
             <button class="menu-close" id="menuCloseBtn">&times;</button>
@@ -559,30 +566,30 @@
         </div>
 
         <div class="menu-content">
-            <!-- Hoofdlijst -->
             <ul class="menu-list" id="mainMenuList">
-                <li><a href="#new-arrivals" class="menu-link">Summer New Arrivals</a></li>
-                <li><button class="menu-link has-arrow" data-target="submenu-menswear">Menswear</button></li>
-                <li><button class="menu-link has-arrow" data-target="submenu-footwear">Footwear</button></li>
+                <li><a href="#new-drop" class="menu-link">Summer Drop '26</a></li>
+                <li><button class="menu-link has-arrow" data-target="submenu-amezia">Amezia Sets</button></li>
+                <li><button class="menu-link has-arrow" data-target="submenu-brands">Luxe Merken</button></li>
                 <li><button class="menu-link has-arrow" data-target="submenu-about">About</button></li>
             </ul>
 
-            <!-- Submenu: Menswear (Alleen Shirts & Shorts) -->
-            <div class="submenu-panel" id="submenu-menswear">
-                <button class="back-btn">&larr; Menswear</button>
+            <!-- Submenu: Amezia -->
+            <div class="submenu-panel" id="submenu-amezia">
+                <button class="back-btn">&larr; Amezia Sets</button>
                 <ul class="submenu-list">
-                    <li><a href="#t-shirts-polos">T-Shirts & Polos</a></li>
-                    <li><a href="#shorts">Luxury Shorts</a></li>
-                    <li><a href="#linen-collection">Linen Collection</a></li>
+                    <li><a href="#amezia-sets">Supima Sets</a></li>
+                    <li><a href="#amezia-combo">Short Combos</a></li>
+                    <li><a href="#amezia-suits">Class Suits</a></li>
                 </ul>
             </div>
 
-            <!-- Submenu: Footwear (Alleen Schoenen) -->
-            <div class="submenu-panel" id="submenu-footwear">
-                <button class="back-btn">&larr; Footwear</button>
+            <!-- Submenu: Luxe Merken -->
+            <div class="submenu-panel" id="submenu-brands">
+                <button class="back-btn">&larr; Luxe Merken</button>
                 <ul class="submenu-list">
-                    <li><a href="#soft-tide">Soft Tide Loafers</a></li>
-                    <li><a href="#velour-slipon">Velour Slip-on</a></li>
+                    <li><a href="#loro-piana">Loro Piana</a></li>
+                    <li><a href="#louis-vuitton">Louis Vuitton</a></li>
+                    <li><a href="#parfums">Exclusieve Parfums</a></li>
                 </ul>
             </div>
 
@@ -596,28 +603,28 @@
             </div>
         </div>
 
-        <!-- Promo Banner onderin menu -->
+        <!-- Promo Banner -->
         <div class="menu-promo-badge" id="promoBadge">
             <span>Exclusive Summer Collection 2026</span>
             <button id="closePromoBtn">&times;</button>
         </div>
     </div>
 
-    <!-- MAIN SFEER BANNER (PURE SUMMER VIBES) -->
-    <section class="hero">
+    <!-- MAIN SFEER BANNER -->
+    <section class="hero" id="new-drop">
         <div class="hero-content">
             <h1>High-End Summer Essentials</h1>
-            <a href="#collection" class="btn-shop">Explore Collection</a>
+            <a href="#amezia-sets" class="btn-shop">Explore Collection</a>
         </div>
     </section>
 
     <!-- MANIFESTO TEXT -->
-    <section class="manifesto">
+    <section class="manifesto" id="world">
         <h2>The Art of Summer Living</h2>
-        <p>Amezia brengt een exclusieve selectie van premium linnen shirts, luxe shorts en handgemaakte zomerschoenen. Gemaakt van de allerbeste Europese stoffen voor optimaal comfort tijdens warme zomerdagen.</p>
+        <p>Amezia brengt een exclusieve selectie van premium shirts, luxe shorts en highend items. Gemaakt voor optimaal comfort en een exclusieve stijl.</p>
     </section>
 
-    <!-- HOE HET BESTELLEN WERKT (GEEN BANK MEER) -->
+    <!-- HOE HET BESTELLEN WERKT -->
     <section class="how-to-order" id="order-info">
         <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--brand-dark);">Exclusieve Bestelservice</h3>
         <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 4px;">Geen gedoe met winkelwagens. Bestel direct en persoonlijk.</p>
@@ -625,11 +632,11 @@
         <div class="order-steps">
             <div class="step">
                 <div class="step-num">01</div>
-                <p>Kies je favoriete T-shirt, shorts of schoenen uit onze collectie.</p>
+                <p>Kies je favoriete items uit onze collectie.</p>
             </div>
             <div class="step">
                 <div class="step-num">02</div>
-                <p>Klik op de bestelknop om direct contact op te nemen via WhatsApp of telefoon.</p>
+                <p>Klik op de bestelknop om direct contact op te nemen via WhatsApp.</p>
             </div>
             <div class="step">
                 <div class="step-num">03</div>
@@ -638,78 +645,186 @@
         </div>
     </section>
 
-    <!-- EXCLUSIEVE PRODUCTEN (SHORTS, SHIRTS, SCHOENEN) -->
-    <main class="main-section" id="collection">
-        <h3 class="section-title">Summer Drop '26</h3>
+    <!-- HIER BEGINNEN JOUW PRODUCTEN IN HET 2-KOLOMMEN GRID -->
+    <main class="main-section">
         
+        <!-- Categorie: Amezia Sets -->
+        <h3 class="section-title" id="amezia-sets">Amezia Sets</h3>
         <div class="products-grid">
             
-            <!-- Product 1: T-Shirt -->
             <div class="product-card">
                 <div class="product-image-wrapper">
-                    <!-- Je kunt deze placeholders later vervangen door je eigen foto's -->
-                    <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=500&auto=format&fit=crop" alt="Courtside Zip Polo">
+                    <img src="images/amezia-supima-set-black-slim-fit.jpg" alt="Amezia Supima Set Black">
                 </div>
                 <div class="product-info">
                     <div>
-                        <div class="product-name">Courtside Zip Polo Shirt Olive Green</div>
-                        <div class="product-price">€189,00</div>
+                        <div class="product-name">Supima Set Black (Slim Fit)</div>
+                        <div class="product-price">€129,00</div>
                     </div>
-                    <!-- Direct Bestel Knop gekoppeld aan Contact -->
-                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Courtside%20Zip%20Polo%20Olive" class="btn-order-via-contact">
-                        Order via WhatsApp
-                    </a>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Amezia%20Supima%20Set%20Black" class="btn-order-via-contact">Bestel Nu</a>
                 </div>
             </div>
 
-            <!-- Product 2: Shorts -->
-            <div class="product-card">
+            <div class="product-card" id="amezia-combo">
                 <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=500&auto=format&fit=crop" alt="Luxury Shorts">
+                    <img src="images/amezia-short-combo-set-navy-beige.jpg" alt="Amezia Short Combo Beige">
                 </div>
                 <div class="product-info">
                     <div>
-                        <div class="product-name">Tailored Summer Shorts Sand Beige</div>
-                        <div class="product-price">€145,00</div>
+                        <div class="product-name">Short Combo Set Navy/Beige</div>
+                        <div class="product-price">€169,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Tailored%20Summer%20Shorts%20Sand" class="btn-order-via-contact">
-                        Order via WhatsApp
-                    </a>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Short%20Combo%20Set%20Navy/Beige" class="btn-order-via-contact">Bestel Nu</a>
                 </div>
             </div>
 
-            <!-- Product 3: Schoenen -->
             <div class="product-card">
                 <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?q=80&w=500&auto=format&fit=crop" alt="Soft Tide Loafers">
+                    <img src="images/amezia-short-combo-set-navy-grey.jpg" alt="Amezia Short Combo Grey">
                 </div>
                 <div class="product-info">
                     <div>
-                        <div class="product-name">Soft Tide Loafers Caramel Suede</div>
-                        <div class="product-price">€249,00</div>
+                        <div class="product-name">Short Combo Set Navy/Grey</div>
+                        <div class="product-price">€169,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Soft%20Tide%20Loafers" class="btn-order-via-contact">
-                        Order via WhatsApp
-                    </a>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Short%20Combo%20Set%20Navy/Grey" class="btn-order-via-contact">Bestel Nu</a>
                 </div>
             </div>
 
+            <div class="product-card" id="amezia-suits">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-class-suit-taupe-model.jpg" alt="Amezia Class Suit">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Amezia Class Suit (Taupe)</div>
+                        <div class="product-price">€219,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Amezia%20Class%20Suit%20Taupe" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
         </div>
+
+        <!-- Categorie: Loro Piana -->
+        <h3 class="section-title" id="loro-piana">Loro Piana Exclusives</h3>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-summer-walk-navy.jpg" alt="Loro Piana Summer Walk">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Summer Walk Suede (Navy)</div>
+                        <div class="product-price">€299,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Loro%20Piana%20Summer%20Walk%20Navy" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-baseball-cap-navy-blue.jpg" alt="Loro Piana Cap">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Baseball Cap (Navy Blue)</div>
+                        <div class="product-price">€119,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Loro%20Piana%20Cap%20Navy" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-clutch-black.jpg" alt="Loro Piana Clutch Black">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">L27 Leather Clutch (Black)</div>
+                        <div class="product-price">€349,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Loro%20Piana%20Clutch%20Black" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-clutch-tan.jpg" alt="Loro Piana Clutch Tan">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">L27 Leather Clutch (Tan)</div>
+                        <div class="product-price">€349,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20de%20Loro%20Piana%20Clutch%20Tan" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categorie: Louis Vuitton -->
+        <h3 class="section-title" id="louis-vuitton">Louis Vuitton</h3>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/lv-lvm-tshirt-cream.jpg" alt="LV Knit Tshirt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">LVM Knit T-Shirt (Cream)</div>
+                        <div class="product-price">€179,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20het%20LV%20Knit%20Tshirt%20Cream" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/lv-monogram-pocket-tshirt-white.jpg" alt="LV Pocket Tshirt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Monogram Pocket T-Shirt (White)</div>
+                        <div class="product-price">€159,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678?text=Ik%20heb%20interesse%20in%20het%20LV%20Pocket%20Tshirt%20White" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categorie: Parfums -->
+        <h3 class="section-title" id="parfums">Collectie Parfums</h3>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/exclusieve-parfums-collectie-voorraad.jpg" alt="Parfum Collectie">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Exclusieve Parfums Voorraad</div>
+                        <div class="product-price">Op aanvraag</div>
+                    </div>
+                    <a href="https://wa.me/31612345678?text=Ik%20wil%20graag%20de%20parfumlijst%20weten" class="btn-order-via-contact">Vraag Voorraad</a>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <!-- CONTACT SERVICE SECTIE (BORDEAUX) -->
+    <!-- CONTACT SERVICE SECTIE -->
     <section class="newsletter-dark">
         <h2>Direct Personal Service</h2>
         <p>Vragen over maten of wil je direct een bestelling plaatsen? Onze service lijn staat elke dag voor je klaar via WhatsApp en telefoon.</p>
         
         <div class="contact-box">
             <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7;">Bel of App ons direct</p>
-            <!-- Vervang dit nummer door jouw eigen nummer -->
             <a href="tel:+31612345678" class="contact-number">+31 (0)6 1234 5678</a>
         </div>
     </section>
 
-    <!-- FOOTER ZONDER BANK LOGO'S -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -794,3 +909,4 @@
     </script>
 </body>
 </html>
+
