@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Amezia | Summer Luxury Boutique</title>
     
-    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* BASE RESET & SMOOTH SCROLL */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         html, body {
             width: 100%;
@@ -59,8 +55,9 @@
             margin: 0 auto;
             padding: 18px 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            position: relative;
         }
 
         .menu-toggle {
@@ -71,6 +68,8 @@
             gap: 6px;
             cursor: pointer;
             padding: 5px;
+            position: absolute;
+            left: 20px;
         }
         .menu-toggle span {
             width: 24px;
@@ -85,6 +84,7 @@
             font-style: italic;
             color: var(--brand-dark);
             letter-spacing: 1.5px;
+            text-align: center;
         }
 
         .nav-order-btn {
@@ -98,6 +98,8 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            position: absolute;
+            right: 20px;
         }
 
         /* MOBILE MENU OVERLAY */
@@ -542,6 +544,19 @@
                 grid-template-columns: 1fr;
                 gap: 50px;
             }
+
+            nav {
+                padding: 18px 10px;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-order-btn {
+                font-size: 0.7rem;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
@@ -550,10 +565,10 @@
     <!-- HEADER / NAVIGATION -->
     <header>
         <nav>
-            <div class="logo">Amezia</div>
             <button class="menu-toggle" id="menuOpenBtn">
                 <span></span><span></span><span></span>
             </button>
+            <div class="logo">Amezia</div>
             <a href="#order-now" class="nav-order-btn">Order Now 🛒</a>
         </nav>
     </header>
@@ -568,8 +583,8 @@
             <ul class="menu-list">
                 <li><button class="menu-link has-arrow" data-target="amezia-submenu">Amezia Collections</button></li>
                 <li><button class="menu-link has-arrow" data-target="luxury-submenu">Luxury Brands</button></li>
-                <li><a href="#order-now" class="menu-link auto-close">Order Now</a></li>
                 <li><a href="#how-order" class="menu-link auto-close">How to Order</a></li>
+                <li><a href="#order-now" class="menu-link auto-close">All Products</a></li>
             </ul>
 
             <div class="submenu-panel" id="amezia-submenu">
@@ -599,7 +614,7 @@
             <h1>Exclusive Summer Collection</h1>
             <p>Handpicked luxury fashion curated for the modern gentleman.</p>
             <div class="hero-buttons">
-                <button class="btn btn-dark">Explore Collection</button>
+                <a href="#order-now" class="btn btn-dark">Explore Collection</a>
                 <a href="https://wa.me/31612345678" class="btn">Order via WhatsApp</a>
             </div>
         </div>
@@ -630,7 +645,685 @@
 
     <!-- PRODUCTS MAIN -->
     <main id="order-now">
-        <!-- ... rest van je products blijft hetzelfde ... -->
+
+        <!-- AMEZIA SETS & ESSENTIALS -->
+        <h3 class="section-title" id="amezia-sets">Amezia Sets & Essentials</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-body-set-fitpic-beige.jpg" alt="Body Set Beige">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Body Set Fitpic Beige</div>
+                        <div class="product-price">€189,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-body-set-fitpic-brown.jpg" alt="Body Set Brown">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Body Set Fitpic Brown</div>
+                        <div class="product-price">€189,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-body-set-fitpic-dark.jpg" alt="Body Set Dark">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Body Set Fitpic Dark</div>
+                        <div class="product-price">€189,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-class-suit-taupe-model.jpg" alt="Class Suit Taupe">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Class Suit Taupe (Model)</div>
+                        <div class="product-price">€249,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-combo-navy-flatlay.jpg" alt="Combo Navy">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Combo Navy Flatlay</div>
+                        <div class="product-price">€219,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-combo-navy-zipper.jpg" alt="Combo Navy Zipper">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Combo Navy Zipper</div>
+                        <div class="product-price">€229,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-fitpic-gilet-combo.jpg" alt="Gilet Combo">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Fitpic Gilet Combo</div>
+                        <div class="product-price">€259,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-fitpic-grey-set.jpg" alt="Fitpic Grey Set">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Fitpic Grey Set</div>
+                        <div class="product-price">€199,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-fitpic-navy-watch.jpg" alt="Fitpic Navy Watch">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Fitpic Navy Watch</div>
+                        <div class="product-price">€209,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-fitpic-taupe-bag.jpg" alt="Fitpic Taupe Bag">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Fitpic Taupe Bag</div>
+                        <div class="product-price">€239,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-hydro-suit-beige-flatlay.jpg" alt="Hydro Suit Beige">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Hydro Suit Beige Flatlay</div>
+                        <div class="product-price">€279,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-hydro-suit-cream.jpg" alt="Hydro Suit Cream">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Hydro Suit Cream</div>
+                        <div class="product-price">€279,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- AMEZIA SHIRTS & SHINY ITEMS -->
+        <h3 class="section-title" id="amezia-shirts">Shirts & Shiny Items</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-shiny-long-sleeve-army.jpg" alt="Shiny Long Sleeve Army">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Shiny Long Sleeve Army</div>
+                        <div class="product-price">€149,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-shiny-long-sleeve-dark.jpg" alt="Shiny Long Sleeve Dark">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Shiny Long Sleeve Dark</div>
+                        <div class="product-price">€149,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-shiny-long-sleeve-light.jpg" alt="Shiny Long Sleeve Light">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Shiny Long Sleeve Light</div>
+                        <div class="product-price">€149,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-shiny-long-sleeve-silver.jpg" alt="Shiny Long Sleeve Silver">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Shiny Long Sleeve Silver</div>
+                        <div class="product-price">€159,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-shiny-t-shirt-army-green.jpg" alt="Shiny T-Shirt Army">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Shiny T-Shirt Army Green</div>
+                        <div class="product-price">€99,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-shiny-tshirt-burgundy.jpg" alt="Shiny T-Shirt Burgundy">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Shiny T-Shirt Burgundy</div>
+                        <div class="product-price">€99,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-shiny-zip-polo-burgundy.jpg" alt="Shiny Zip Polo Burgundy">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Shiny Zip Polo Burgundy</div>
+                        <div class="product-price">€129,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-short-combo-beige.jpg" alt="Short Combo Beige">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Short Combo Beige</div>
+                        <div class="product-price">€139,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-short-combo-dark-jeans.jpg" alt="Short Combo Dark">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Short Combo Dark Jeans</div>
+                        <div class="product-price">€139,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUPIMA, TECH & ULTRA SUITS -->
+        <h3 class="section-title" id="amezia-tech">Supima, Tech & Ultra Suits</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-supima-set-taupe-shorts.jpg" alt="Supima Set Taupe">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Supima Set Taupe Shorts</div>
+                        <div class="product-price">€169,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-supima-set-taupe.jpg" alt="Supima Set Taupe Full">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Supima Set Taupe</div>
+                        <div class="product-price">€189,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-supima-short-navy.jpg" alt="Supima Short Navy">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Supima Short Navy</div>
+                        <div class="product-price">€79,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-supima-t-shirt-taupe.jpg" alt="Supima T-Shirt Taupe">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Supima T-Shirt Taupe</div>
+                        <div class="product-price">€89,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-tech-short-antraciet.jpg" alt="Tech Short Antraciet">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Tech Short Antraciet</div>
+                        <div class="product-price">€119,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-ultra-suit-army-green.jpg" alt="Ultra Suit Army Green">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Ultra Suit Army Green</div>
+                        <div class="product-price">€299,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-ultra-suit-beige-flatlay.jpg" alt="Ultra Suit Beige">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Ultra Suit Beige Flatlay</div>
+                        <div class="product-price">€299,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-ultra-suit-beige-model.jpg" alt="Ultra Suit Beige Model">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Ultra Suit Beige (Model)</div>
+                        <div class="product-price">€299,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-ultra-suit-black-flatlay.jpg" alt="Ultra Suit Black">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Ultra Suit Black Flatlay</div>
+                        <div class="product-price">€299,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/amezia-cardigans-trio-flatlay.jpg" alt="Cardigans Trio">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Cardigans Trio Flatlay</div>
+                        <div class="product-price">€269,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LORO PIANA -->
+        <h3 class="section-title" id="loro-piana">Loro Piana Collection</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-baseball-cap-black.jpg" alt="Loro Piana Cap Black">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Loro Piana Baseball Cap Black</div>
+                        <div class="product-price">€189,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-baseball-cap-navy.jpg" alt="Loro Piana Cap Navy">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Loro Piana Baseball Cap Navy</div>
+                        <div class="product-price">€189,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-baseball-cap-teal.jpg" alt="Loro Piana Cap Teal">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Loro Piana Baseball Cap Teal</div>
+                        <div class="product-price">€189,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-clutch-black.jpg" alt="Loro Piana Clutch Black">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Loro Piana Clutch Black</div>
+                        <div class="product-price">€349,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-clutch-tan.jpg" alt="Loro Piana Clutch Tan">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Loro Piana Clutch Tan</div>
+                        <div class="product-price">€349,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-clutch-taupe.jpg" alt="Loro Piana Clutch Taupe">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Loro Piana Clutch Taupe</div>
+                        <div class="product-price">€349,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-men-bag.jpg" alt="Loro Piana Men Bag">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Loro Piana Men Bag</div>
+                        <div class="product-price">€549,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/loro-piana-summer-walk-navy.jpg" alt="Loro Piana Summer Walk">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Loro Piana Summer Walk Navy</div>
+                        <div class="product-price">€429,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOUIS VUITTON -->
+        <h3 class="section-title" id="louis-vuitton">Louis Vuitton Collection</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/lv-horse-tshirt-navy.jpg" alt="LV Horse T-Shirt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">LV Horse T-Shirt Navy</div>
+                        <div class="product-price">€179,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/lv-lvm-tshirt-cream.jpg" alt="LV LVM T-Shirt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">LV LVM T-Shirt Cream</div>
+                        <div class="product-price">€179,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/lv-monogram-pocket-tshirt-white.jpg" alt="LV Monogram T-Shirt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">LV Monogram Pocket T-Shirt</div>
+                        <div class="product-price">€189,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/lv-script-embroidered-tshirt.jpg" alt="LV Script T-Shirt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">LV Script Embroidered T-Shirt</div>
+                        <div class="product-price">€199,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXCLUSIVE BRANDS -->
+        <h3 class="section-title" id="exclusive-brands">Exclusive Designers</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/prada-america-cup-sneaker-black.jpg" alt="Prada America Cup">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Prada America's Cup (Black)</div>
+                        <div class="product-price">€399,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/dior-oblique-bodywarmer-navy.jpg" alt="Dior Oblique">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Dior Oblique Bodywarmer Navy</div>
+                        <div class="product-price">€569,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/hermes-slip-on-sneakers-black.jpg" alt="Hermes Sneakers">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Hermes Slip-On Sneakers Black</div>
+                        <div class="product-price">€349,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/nike-air-jordan-1-low-travis-scott.jpg" alt="Travis Scott Jordan">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Jordan 1 Low x Travis Scott</div>
+                        <div class="product-price">€309,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/celine-baseball-cap-khaki.jpg" alt="Celine Cap">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Celine Baseball Cap Khaki</div>
+                        <div class="product-price">€149,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/hermes-kelly-belt-black-gold.jpg" alt="Hermes Kelly Belt">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Hermes Kelly Belt (Black/Gold)</div>
+                        <div class="product-price">€379,00</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PARFUMS -->
+        <h3 class="section-title" id="parfums">Collectie Parfums</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="images/exclusieve-parfums-collectie.jpg" alt="Parfum Collectie">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Exclusieve Parfums Voorraad</div>
+                        <div class="product-price">Op aanvraag</div>
+                    </div>
+                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Vraag Voorraad</a>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <section class="newsletter-dark">
@@ -722,4 +1415,4 @@
     </script>
 
 </body>
-</html>
+                </html>
