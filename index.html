@@ -369,6 +369,7 @@
             height: 280px;
             overflow: hidden;
             background-color: #f5f5f5;
+            cursor: pointer;
         }
 
         .product-image-wrapper img {
@@ -418,6 +419,85 @@
 
         .btn-order-via-contact:hover {
             background-color: #2a1318;
+        }
+
+        /* LIGHTBOX MODAL */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 5000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            touch-action: none;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2.5rem;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 5001;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-info {
+            margin-top: 30px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .lightbox-product-name {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .lightbox-product-price {
+            font-size: 1.5rem;
+            color: #ffc107;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .lightbox-btn {
+            background-color: var(--brand-dark);
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-btn:hover {
+            background-color: #2a1318;
+            box-shadow: 0 0 30px rgba(255, 193, 7, 0.3);
         }
 
         .newsletter-dark {
@@ -549,6 +629,14 @@
                 font-size: 0.7rem;
                 padding: 6px 12px;
             }
+
+            .lightbox-product-name {
+                font-size: 1.5rem;
+            }
+
+            .lightbox-product-price {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -597,13 +685,24 @@
         </div>
     </div>
 
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <img id="lightboxImage" class="lightbox-image" src="" alt="">
+        <div class="lightbox-info">
+            <div class="lightbox-product-name" id="lightboxProductName">Product Name</div>
+            <div class="lightbox-product-price" id="lightboxProductPrice">€0,00</div>
+            <button class="lightbox-btn" id="lightboxOrderBtn">📱 Bestel via WhatsApp</button>
+        </div>
+    </div>
+
     <section class="hero">
         <div class="hero-content">
             <h1>Exclusive Summer Collection</h1>
             <p>Handpicked luxury fashion curated for the modern gentleman.</p>
             <div class="hero-buttons">
                 <a href="#order-now" class="btn btn-dark">Explore Collection</a>
-                <a href="https://wa.me/31612345678" class="btn">Order via WhatsApp</a>
+                <a href="https://wa.me/32484308813" class="btn">Order via WhatsApp</a>
             </div>
         </div>
     </section>
@@ -636,7 +735,7 @@
         <h3 class="section-title" id="amezia-sets">Amezia Sets & Combos</h3>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-body-set-fitpic-beige.jpg', 'Body Set Fitpic Beige', '€189,00')">
                     <img src="images/amezia-body-set-fitpic-beige.jpg" alt="Body Set Beige">
                 </div>
                 <div class="product-info">
@@ -644,12 +743,12 @@
                         <div class="product-name">Body Set Fitpic Beige</div>
                         <div class="product-price">€189,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Body Set Fitpic Beige', '€189,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-body-set-fitpic-brown.jpg', 'Body Set Fitpic Brown', '€189,00')">
                     <img src="images/amezia-body-set-fitpic-brown.jpg" alt="Body Set Brown">
                 </div>
                 <div class="product-info">
@@ -657,12 +756,12 @@
                         <div class="product-name">Body Set Fitpic Brown</div>
                         <div class="product-price">€189,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Body Set Fitpic Brown', '€189,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-body-set-fitpic-darkgrey.jpg', 'Body Set Fitpic Dark Grey', '€189,00')">
                     <img src="images/amezia-body-set-fitpic-darkgrey.jpg" alt="Body Set Dark Grey">
                 </div>
                 <div class="product-info">
@@ -670,12 +769,12 @@
                         <div class="product-name">Body Set Fitpic Dark Grey</div>
                         <div class="product-price">€189,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Body Set Fitpic Dark Grey', '€189,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-class-suit-taupe-model.jpg', 'Class Suit Taupe (Model)', '€249,00')">
                     <img src="images/amezia-class-suit-taupe-model.jpg" alt="Class Suit Taupe">
                 </div>
                 <div class="product-info">
@@ -683,12 +782,12 @@
                         <div class="product-name">Class Suit Taupe (Model)</div>
                         <div class="product-price">€249,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Class Suit Taupe (Model)', '€249,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-combo-navy-flatlay.jpg', 'Combo Navy Flatlay', '€219,00')">
                     <img src="images/amezia-combo-navy-flatlay.jpg" alt="Combo Navy">
                 </div>
                 <div class="product-info">
@@ -696,12 +795,12 @@
                         <div class="product-name">Combo Navy Flatlay</div>
                         <div class="product-price">€219,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Combo Navy Flatlay', '€219,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-combo-navy-zipper.jpg', 'Combo Navy Zipper', '€229,00')">
                     <img src="images/amezia-combo-navy-zipper.jpg" alt="Combo Navy Zipper">
                 </div>
                 <div class="product-info">
@@ -709,12 +808,12 @@
                         <div class="product-name">Combo Navy Zipper</div>
                         <div class="product-price">€229,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Combo Navy Zipper', '€229,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-fitpic-gilet-combo.jpg', 'Fitpic Gilet Combo', '€259,00')">
                     <img src="images/amezia-fitpic-gilet-combo.jpg" alt="Gilet Combo">
                 </div>
                 <div class="product-info">
@@ -722,12 +821,12 @@
                         <div class="product-name">Fitpic Gilet Combo</div>
                         <div class="product-price">€259,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Fitpic Gilet Combo', '€259,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-fitpic-grey-set.jpg', 'Fitpic Grey Set', '€199,00')">
                     <img src="images/amezia-fitpic-grey-set.jpg" alt="Fitpic Grey Set">
                 </div>
                 <div class="product-info">
@@ -735,12 +834,12 @@
                         <div class="product-name">Fitpic Grey Set</div>
                         <div class="product-price">€199,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Fitpic Grey Set', '€199,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-fitpic-navy-watch.jpg', 'Fitpic Navy Watch', '€209,00')">
                     <img src="images/amezia-fitpic-navy-watch.jpg" alt="Fitpic Navy Watch">
                 </div>
                 <div class="product-info">
@@ -748,12 +847,12 @@
                         <div class="product-name">Fitpic Navy Watch</div>
                         <div class="product-price">€209,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Fitpic Navy Watch', '€209,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-fitpic-taupe-bag.jpg', 'Fitpic Taupe Bag', '€239,00')">
                     <img src="images/amezia-fitpic-taupe-bag.jpg" alt="Fitpic Taupe Bag">
                 </div>
                 <div class="product-info">
@@ -761,12 +860,12 @@
                         <div class="product-name">Fitpic Taupe Bag</div>
                         <div class="product-price">€239,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Fitpic Taupe Bag', '€239,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-hydro-suit-beige-flatlay.jpg', 'Hydro Suit Beige Flatlay', '€279,00')">
                     <img src="images/amezia-hydro-suit-beige-flatlay.jpg" alt="Hydro Suit Beige">
                 </div>
                 <div class="product-info">
@@ -774,12 +873,12 @@
                         <div class="product-name">Hydro Suit Beige Flatlay</div>
                         <div class="product-price">€279,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Hydro Suit Beige Flatlay', '€279,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-hydro-suit-cream.jpg', 'Hydro Suit Cream', '€279,00')">
                     <img src="images/amezia-hydro-suit-cream.jpg" alt="Hydro Suit Cream">
                 </div>
                 <div class="product-info">
@@ -787,12 +886,12 @@
                         <div class="product-name">Hydro Suit Cream</div>
                         <div class="product-price">€279,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Hydro Suit Cream', '€279,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-cardigans-trio-flatlay.jpg', 'Cardigans Trio Flatlay', '€269,00')">
                     <img src="images/amezia-cardigans-trio-flatlay.jpg" alt="Cardigans Trio">
                 </div>
                 <div class="product-info">
@@ -800,12 +899,12 @@
                         <div class="product-name">Cardigans Trio Flatlay</div>
                         <div class="product-price">€269,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Cardigans Trio Flatlay', '€269,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-short-combo-beige.jpg', 'Short Combo Beige', '€139,00')">
                     <img src="images/amezia-short-combo-beige.jpg" alt="Short Combo Beige">
                 </div>
                 <div class="product-info">
@@ -813,12 +912,12 @@
                         <div class="product-name">Short Combo Beige</div>
                         <div class="product-price">€139,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Short Combo Beige', '€139,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-short-combo-dark.jpg', 'Short Combo Dark Jeans', '€139,00')">
                     <img src="images/amezia-short-combo-dark.jpg" alt="Short Combo Dark Jeans">
                 </div>
                 <div class="product-info">
@@ -826,12 +925,12 @@
                         <div class="product-name">Short Combo Dark Jeans</div>
                         <div class="product-price">€139,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Short Combo Dark Jeans', '€139,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-short-combo-set-navy-beige.jpg', 'Short Combo Set Navy Beige', '€149,00')">
                     <img src="images/amezia-short-combo-set-navy-beige.jpg" alt="Short Combo Navy Beige">
                 </div>
                 <div class="product-info">
@@ -839,12 +938,12 @@
                         <div class="product-name">Short Combo Set Navy Beige</div>
                         <div class="product-price">€149,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Short Combo Set Navy Beige', '€149,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-short-combo-set-navy-grey.jpg', 'Short Combo Set Navy Grey', '€149,00')">
                     <img src="images/amezia-short-combo-set-navy-grey.jpg" alt="Short Combo Navy Grey">
                 </div>
                 <div class="product-info">
@@ -852,7 +951,7 @@
                         <div class="product-name">Short Combo Set Navy Grey</div>
                         <div class="product-price">€149,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Short Combo Set Navy Grey', '€149,00')">Bestel Nu</button>
                 </div>
             </div>
         </div>
@@ -861,7 +960,7 @@
         <h3 class="section-title" id="amezia-supima">Supima Katoen</h3>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-set-navy.jpg', 'Supima Set Navy', '€199,00')">
                     <img src="images/amezia-supima-set-navy.jpg" alt="Supima Set Navy">
                 </div>
                 <div class="product-info">
@@ -869,12 +968,12 @@
                         <div class="product-name">Supima Set Navy</div>
                         <div class="product-price">€199,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima Set Navy', '€199,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-set-taupe.jpg', 'Supima Set Taupe', '€199,00')">
                     <img src="images/amezia-supima-set-taupe.jpg" alt="Supima Set Taupe">
                 </div>
                 <div class="product-info">
@@ -882,12 +981,12 @@
                         <div class="product-name">Supima Set Taupe</div>
                         <div class="product-price">€199,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima Set Taupe', '€199,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-set-black-slim.jpg', 'Supima Set Black Slim', '€209,00')">
                     <img src="images/amezia-supima-set-black-slim.jpg" alt="Supima Set Black Slim">
                 </div>
                 <div class="product-info">
@@ -895,12 +994,12 @@
                         <div class="product-name">Supima Set Black Slim</div>
                         <div class="product-price">€209,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima Set Black Slim', '€209,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-set-taupe-oversized.jpg', 'Supima Set Taupe Oversized', '€209,00')">
                     <img src="images/amezia-supima-set-taupe-oversized.jpg" alt="Supima Set Taupe Oversized">
                 </div>
                 <div class="product-info">
@@ -908,12 +1007,12 @@
                         <div class="product-name">Supima Set Taupe Oversized</div>
                         <div class="product-price">€209,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima Set Taupe Oversized', '€209,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-set-taupe-slim-fit.jpg', 'Supima Set Taupe Slim Fit', '€209,00')">
                     <img src="images/amezia-supima-set-taupe-slim-fit.jpg" alt="Supima Set Taupe Slim Fit">
                 </div>
                 <div class="product-info">
@@ -921,12 +1020,12 @@
                         <div class="product-name">Supima Set Taupe Slim Fit</div>
                         <div class="product-price">€209,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima Set Taupe Slim Fit', '€209,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-sup-set-taupe-rack.jpg', 'Supima Set Taupe Rack', '€199,00')">
                     <img src="images/amezia-sup-set-taupe-rack.jpg" alt="Supima Set Taupe Rack">
                 </div>
                 <div class="product-info">
@@ -934,12 +1033,12 @@
                         <div class="product-name">Supima Set Taupe Rack</div>
                         <div class="product-price">€199,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima Set Taupe Rack', '€199,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-short-navy.jpg', 'Supima Short Navy', '€79,00')">
                     <img src="images/amezia-supima-short-navy.jpg" alt="Supima Short Navy">
                 </div>
                 <div class="product-info">
@@ -947,12 +1046,12 @@
                         <div class="product-name">Supima Short Navy</div>
                         <div class="product-price">€79,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima Short Navy', '€79,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-short-navy-back.jpg', 'Supima Short Navy (Back)', '€79,00')">
                     <img src="images/amezia-supima-short-navy-back.jpg" alt="Supima Short Navy Back">
                 </div>
                 <div class="product-info">
@@ -960,12 +1059,12 @@
                         <div class="product-name">Supima Short Navy (Back)</div>
                         <div class="product-price">€79,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima Short Navy (Back)', '€79,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-short-navy-blue-front.jpg', 'Supima Short Navy (Front)', '€79,00')">
                     <img src="images/amezia-supima-short-navy-blue-front.jpg" alt="Supima Short Navy Front">
                 </div>
                 <div class="product-info">
@@ -973,12 +1072,12 @@
                         <div class="product-name">Supima Short Navy (Front)</div>
                         <div class="product-price">€79,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima Short Navy (Front)', '€79,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-tshirt-taupe-slim.jpg', 'Supima T-Shirt Taupe Slim', '€89,00')">
                     <img src="images/amezia-supima-tshirt-taupe-slim.jpg" alt="Supima T-Shirt Taupe Slim">
                 </div>
                 <div class="product-info">
@@ -986,12 +1085,12 @@
                         <div class="product-name">Supima T-Shirt Taupe Slim</div>
                         <div class="product-price">€89,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima T-Shirt Taupe Slim', '€89,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-supima-t-shirt-taupe.jpg', 'Supima T-Shirt Taupe', '€89,00')">
                     <img src="images/amezia-supima-t-shirt-taupe.jpg" alt="Supima T-Shirt Taupe">
                 </div>
                 <div class="product-info">
@@ -999,7 +1098,7 @@
                         <div class="product-name">Supima T-Shirt Taupe</div>
                         <div class="product-price">€89,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Supima T-Shirt Taupe', '€89,00')">Bestel Nu</button>
                 </div>
             </div>
         </div>
@@ -1008,7 +1107,7 @@
         <h3 class="section-title" id="amezia-shiny">Shiny, Tech & Suits</h3>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-shiny-long-sleeve-armygreen.jpg', 'Shiny Long Sleeve Army Green', '€159,00')">
                     <img src="images/amezia-shiny-long-sleeve-armygreen.jpg" alt="Shiny Long Sleeve Army Green">
                 </div>
                 <div class="product-info">
@@ -1016,12 +1115,12 @@
                         <div class="product-name">Shiny Long Sleeve Army Green</div>
                         <div class="product-price">€159,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Shiny Long Sleeve Army Green', '€159,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-shiny-long-sleeve-darkgreen.jpg', 'Shiny Long Sleeve Dark Green', '€159,00')">
                     <img src="images/amezia-shiny-long-sleeve-darkgreen.jpg" alt="Shiny Long Sleeve Dark Green">
                 </div>
                 <div class="product-info">
@@ -1029,12 +1128,12 @@
                         <div class="product-name">Shiny Long Sleeve Dark Green</div>
                         <div class="product-price">€159,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Shiny Long Sleeve Dark Green', '€159,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-shiny-long-sleeve-lightgrey.jpg', 'Shiny Long Sleeve Light Grey', '€159,00')">
                     <img src="images/amezia-shiny-long-sleeve-lightgrey.jpg" alt="Shiny Long Sleeve Light Grey">
                 </div>
                 <div class="product-info">
@@ -1042,12 +1141,12 @@
                         <div class="product-name">Shiny Long Sleeve Light Grey</div>
                         <div class="product-price">€159,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Shiny Long Sleeve Light Grey', '€159,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-shiny-tshirt-armygreen.jpg', 'Shiny T-Shirt Army Green', '€99,00')">
                     <img src="images/amezia-shiny-tshirt-armygreen.jpg" alt="Shiny T-Shirt Army Green">
                 </div>
                 <div class="product-info">
@@ -1055,12 +1154,12 @@
                         <div class="product-name">Shiny T-Shirt Army Green</div>
                         <div class="product-price">€99,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Shiny T-Shirt Army Green', '€99,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-shiny-tshirt-burgundy.jpg', 'Shiny T-Shirt Burgundy', '€99,00')">
                     <img src="images/amezia-shiny-tshirt-burgundy.jpg" alt="Shiny T-Shirt Burgundy">
                 </div>
                 <div class="product-info">
@@ -1068,12 +1167,12 @@
                         <div class="product-name">Shiny T-Shirt Burgundy</div>
                         <div class="product-price">€99,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Shiny T-Shirt Burgundy', '€99,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-shiny-zip-polo-burgundy.jpg', 'Shiny Zip Polo Burgundy', '€129,00')">
                     <img src="images/amezia-shiny-zip-polo-burgundy.jpg" alt="Shiny Zip Polo Burgundy">
                 </div>
                 <div class="product-info">
@@ -1081,12 +1180,12 @@
                         <div class="product-name">Shiny Zip Polo Burgundy</div>
                         <div class="product-price">€129,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Shiny Zip Polo Burgundy', '€129,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-tech-short-antraciet.jpg', 'Tech Short Antraciet', '€119,00')">
                     <img src="images/amezia-tech-short-antraciet.jpg" alt="Tech Short Antraciet">
                 </div>
                 <div class="product-info">
@@ -1094,12 +1193,12 @@
                         <div class="product-name">Tech Short Antraciet</div>
                         <div class="product-price">€119,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Tech Short Antraciet', '€119,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-ultra-suit-army-green-flatlay.jpg', 'Ultra Suit Army Green', '€299,00')">
                     <img src="images/amezia-ultra-suit-army-green-flatlay.jpg" alt="Ultra Suit Army Green">
                 </div>
                 <div class="product-info">
@@ -1107,12 +1206,12 @@
                         <div class="product-name">Ultra Suit Army Green</div>
                         <div class="product-price">€299,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Ultra Suit Army Green', '€299,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-ultra-suit-beige-flatlay.jpg', 'Ultra Suit Beige Flatlay', '€299,00')">
                     <img src="images/amezia-ultra-suit-beige-flatlay.jpg" alt="Ultra Suit Beige">
                 </div>
                 <div class="product-info">
@@ -1120,12 +1219,12 @@
                         <div class="product-name">Ultra Suit Beige Flatlay</div>
                         <div class="product-price">€299,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Ultra Suit Beige Flatlay', '€299,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-ultra-suit-beige-model.jpg', 'Ultra Suit Beige (Model)', '€299,00')">
                     <img src="images/amezia-ultra-suit-beige-model.jpg" alt="Ultra Suit Beige Model">
                 </div>
                 <div class="product-info">
@@ -1133,12 +1232,12 @@
                         <div class="product-name">Ultra Suit Beige (Model)</div>
                         <div class="product-price">€299,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Ultra Suit Beige (Model)', '€299,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/amezia-ultra-suit-black-flatlay.jpg', 'Ultra Suit Black Flatlay', '€299,00')">
                     <img src="images/amezia-ultra-suit-black-flatlay.jpg" alt="Ultra Suit Black">
                 </div>
                 <div class="product-info">
@@ -1146,7 +1245,7 @@
                         <div class="product-name">Ultra Suit Black Flatlay</div>
                         <div class="product-price">€299,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Ultra Suit Black Flatlay', '€299,00')">Bestel Nu</button>
                 </div>
             </div>
         </div>
@@ -1155,7 +1254,7 @@
         <h3 class="section-title" id="loro-piana">Loro Piana Collection</h3>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/loro-piana-baseball-cap-black.jpg', 'Loro Piana Baseball Cap Black', '€189,00')">
                     <img src="images/loro-piana-baseball-cap-black.jpg" alt="Loro Piana Cap Black">
                 </div>
                 <div class="product-info">
@@ -1163,12 +1262,12 @@
                         <div class="product-name">Loro Piana Baseball Cap Black</div>
                         <div class="product-price">€189,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Loro Piana Baseball Cap Black', '€189,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/loro-piana-baseball-cap-navy-blue.jpg', 'Loro Piana Baseball Cap Navy', '€189,00')">
                     <img src="images/loro-piana-baseball-cap-navy-blue.jpg" alt="Loro Piana Cap Navy">
                 </div>
                 <div class="product-info">
@@ -1176,12 +1275,12 @@
                         <div class="product-name">Loro Piana Baseball Cap Navy</div>
                         <div class="product-price">€189,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Loro Piana Baseball Cap Navy', '€189,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/loro-piana-baseball-cap-teal-blue.jpg', 'Loro Piana Baseball Cap Teal', '€189,00')">
                     <img src="images/loro-piana-baseball-cap-teal-blue.jpg" alt="Loro Piana Cap Teal">
                 </div>
                 <div class="product-info">
@@ -1189,12 +1288,12 @@
                         <div class="product-name">Loro Piana Baseball Cap Teal</div>
                         <div class="product-price">€189,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Loro Piana Baseball Cap Teal', '€189,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/loro-piana-clutch-black.jpg', 'Loro Piana Clutch Black', '€349,00')">
                     <img src="images/loro-piana-clutch-black.jpg" alt="Loro Piana Clutch Black">
                 </div>
                 <div class="product-info">
@@ -1202,12 +1301,12 @@
                         <div class="product-name">Loro Piana Clutch Black</div>
                         <div class="product-price">€349,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Loro Piana Clutch Black', '€349,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/loro-piana-clutch-tan.jpg', 'Loro Piana Clutch Tan', '€349,00')">
                     <img src="images/loro-piana-clutch-tan.jpg" alt="Loro Piana Clutch Tan">
                 </div>
                 <div class="product-info">
@@ -1215,12 +1314,12 @@
                         <div class="product-name">Loro Piana Clutch Tan</div>
                         <div class="product-price">€349,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Loro Piana Clutch Tan', '€349,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/loro-piana-clutch-taupe.jpg', 'Loro Piana Clutch Taupe', '€349,00')">
                     <img src="images/loro-piana-clutch-taupe.jpg" alt="Loro Piana Clutch Taupe">
                 </div>
                 <div class="product-info">
@@ -1228,12 +1327,12 @@
                         <div class="product-name">Loro Piana Clutch Taupe</div>
                         <div class="product-price">€349,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Loro Piana Clutch Taupe', '€349,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/loro-piana-men-bag.jpg', 'Loro Piana Men Bag', '€549,00')">
                     <img src="images/loro-piana-men-bag.jpg" alt="Loro Piana Men Bag">
                 </div>
                 <div class="product-info">
@@ -1241,12 +1340,12 @@
                         <div class="product-name">Loro Piana Men Bag</div>
                         <div class="product-price">€549,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Loro Piana Men Bag', '€549,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/loro-piana-summer-walk-navy.jpg', 'Loro Piana Summer Walk Navy', '€429,00')">
                     <img src="images/loro-piana-summer-walk-navy.jpg" alt="Loro Piana Summer Walk">
                 </div>
                 <div class="product-info">
@@ -1254,7 +1353,7 @@
                         <div class="product-name">Loro Piana Summer Walk Navy</div>
                         <div class="product-price">€429,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Loro Piana Summer Walk Navy', '€429,00')">Bestel Nu</button>
                 </div>
             </div>
         </div>
@@ -1263,7 +1362,7 @@
         <h3 class="section-title" id="louis-vuitton">Louis Vuitton Collection</h3>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/lv-horse-tshirt-navy.jpg', 'LV Horse T-Shirt Navy', '€179,00')">
                     <img src="images/lv-horse-tshirt-navy.jpg" alt="LV Horse T-Shirt">
                 </div>
                 <div class="product-info">
@@ -1271,12 +1370,12 @@
                         <div class="product-name">LV Horse T-Shirt Navy</div>
                         <div class="product-price">€179,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('LV Horse T-Shirt Navy', '€179,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/lv-lvm-tshirt-cream.jpg', 'LV LVM T-Shirt Cream', '€179,00')">
                     <img src="images/lv-lvm-tshirt-cream.jpg" alt="LV LVM T-Shirt">
                 </div>
                 <div class="product-info">
@@ -1284,12 +1383,12 @@
                         <div class="product-name">LV LVM T-Shirt Cream</div>
                         <div class="product-price">€179,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('LV LVM T-Shirt Cream', '€179,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/lv-monogram-pocket-tshirt-white.jpg', 'LV Monogram Pocket T-Shirt', '€189,00')">
                     <img src="images/lv-monogram-pocket-tshirt-white.jpg" alt="LV Monogram T-Shirt">
                 </div>
                 <div class="product-info">
@@ -1297,12 +1396,12 @@
                         <div class="product-name">LV Monogram Pocket T-Shirt</div>
                         <div class="product-price">€189,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('LV Monogram Pocket T-Shirt', '€189,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/lv-script-embroidered-tshirt-white.jpg', 'LV Script Embroidered T-Shirt', '€199,00')">
                     <img src="images/lv-script-embroidered-tshirt-white.jpg" alt="LV Script T-Shirt">
                 </div>
                 <div class="product-info">
@@ -1310,7 +1409,7 @@
                         <div class="product-name">LV Script Embroidered T-Shirt</div>
                         <div class="product-price">€199,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('LV Script Embroidered T-Shirt', '€199,00')">Bestel Nu</button>
                 </div>
             </div>
         </div>
@@ -1319,7 +1418,7 @@
         <h3 class="section-title" id="exclusive-brands">Exclusive Designers</h3>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/prada-america-cup-sneakers-black-grey.jpg', 'Prada America\\'s Cup (Black)', '€399,00')">
                     <img src="images/prada-america-cup-sneakers-black-grey.jpg" alt="Prada America Cup">
                 </div>
                 <div class="product-info">
@@ -1327,12 +1426,12 @@
                         <div class="product-name">Prada America's Cup (Black)</div>
                         <div class="product-price">€399,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Prada America\\'s Cup (Black)', '€399,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/dior-oblique-bodywarmer-navy.jpg', 'Dior Oblique Bodywarmer Navy', '€569,00')">
                     <img src="images/dior-oblique-bodywarmer-navy.jpg" alt="Dior Oblique">
                 </div>
                 <div class="product-info">
@@ -1340,12 +1439,12 @@
                         <div class="product-name">Dior Oblique Bodywarmer Navy</div>
                         <div class="product-price">€569,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Dior Oblique Bodywarmer Navy', '€569,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/hermes-slip-on-sneakers-blue.jpg', 'Hermes Slip-On Sneakers Black', '€349,00')">
                     <img src="images/hermes-slip-on-sneakers-blue.jpg" alt="Hermes Sneakers">
                 </div>
                 <div class="product-info">
@@ -1353,12 +1452,12 @@
                         <div class="product-name">Hermes Slip-On Sneakers Black</div>
                         <div class="product-price">€349,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Hermes Slip-On Sneakers Black', '€349,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/nike-air-jordan-1-low-travis-scott-canary-pink.jpg', 'Jordan 1 Low x Travis Scott', '€309,00')">
                     <img src="images/nike-air-jordan-1-low-travis-scott-canary-pink.jpg" alt="Travis Scott Jordan">
                 </div>
                 <div class="product-info">
@@ -1366,12 +1465,12 @@
                         <div class="product-name">Jordan 1 Low x Travis Scott</div>
                         <div class="product-price">€309,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Jordan 1 Low x Travis Scott', '€309,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/celine-baseball-cap-khaki-green.jpg', 'Celine Baseball Cap Khaki', '€149,00')">
                     <img src="images/celine-baseball-cap-khaki-green.jpg" alt="Celine Cap">
                 </div>
                 <div class="product-info">
@@ -1379,12 +1478,12 @@
                         <div class="product-name">Celine Baseball Cap Khaki</div>
                         <div class="product-price">€149,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Celine Baseball Cap Khaki', '€149,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/hermes-kelly-belt-black-gold.jpg', 'Hermes Kelly Belt (Black/Gold)', '€379,00')">
                     <img src="images/hermes-kelly-belt-black-gold.jpg" alt="Hermes Kelly Belt">
                 </div>
                 <div class="product-info">
@@ -1392,12 +1491,12 @@
                         <div class="product-name">Hermes Kelly Belt (Black/Gold)</div>
                         <div class="product-price">€379,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Hermes Kelly Belt (Black/Gold)', '€379,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/cr-checkerboard-shorts-cream.jpg', 'CR Checkerboard Shorts Cream', '€129,00')">
                     <img src="images/cr-checkerboard-shorts-cream.jpg" alt="CR Checkerboard Shorts">
                 </div>
                 <div class="product-info">
@@ -1405,12 +1504,12 @@
                         <div class="product-name">CR Checkerboard Shorts Cream</div>
                         <div class="product-price">€129,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('CR Checkerboard Shorts Cream', '€129,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/cr-checkerboard-tshirt-cream.jpg', 'CR Checkerboard T-Shirt Cream', '€99,00')">
                     <img src="images/cr-checkerboard-tshirt-cream.jpg" alt="CR Checkerboard T-Shirt">
                 </div>
                 <div class="product-info">
@@ -1418,12 +1517,12 @@
                         <div class="product-name">CR Checkerboard T-Shirt Cream</div>
                         <div class="product-price">€99,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('CR Checkerboard T-Shirt Cream', '€99,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/hermes-kelly-18-belt-blanc.jpg', 'Hermes Kelly 18 Belt Blanc', '€329,00')">
                     <img src="images/hermes-kelly-18-belt-blanc.jpg" alt="Hermes Kelly Belt White">
                 </div>
                 <div class="product-info">
@@ -1431,12 +1530,12 @@
                         <div class="product-name">Hermes Kelly 18 Belt Blanc</div>
                         <div class="product-price">€329,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Hermes Kelly 18 Belt Blanc', '€329,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/nike-air-jordan-1-low-travis-scott-reverse-mocha.jpg', 'Jordan 1 Low Travis Scott Mocha', '€319,00')">
                     <img src="images/nike-air-jordan-1-low-travis-scott-reverse-mocha.jpg" alt="Travis Scott Mocha">
                 </div>
                 <div class="product-info">
@@ -1444,12 +1543,12 @@
                         <div class="product-name">Jordan 1 Low Travis Scott Mocha</div>
                         <div class="product-price">€319,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Jordan 1 Low Travis Scott Mocha', '€319,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/prada-nylon-tracksuit-black-grey.jpg', 'Prada Nylon Tracksuit Black', '€599,00')">
                     <img src="images/prada-nylon-tracksuit-black-grey.jpg" alt="Prada Tracksuit">
                 </div>
                 <div class="product-info">
@@ -1457,12 +1556,12 @@
                         <div class="product-name">Prada Nylon Tracksuit Black</div>
                         <div class="product-price">€599,00</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Bestel Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Prada Nylon Tracksuit Black', '€599,00')">Bestel Nu</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image-wrapper">
+                <div class="product-image-wrapper" onclick="openLightbox('images/exclusieve-parfums-collectie-voorraad.jpg', 'Exclusieve Parfums Voorraad', 'Op aanvraag')">
                     <img src="images/exclusieve-parfums-collectie-voorraad.jpg" alt="Parfum Collectie">
                 </div>
                 <div class="product-info">
@@ -1470,7 +1569,7 @@
                         <div class="product-name">Exclusieve Parfums Voorraad</div>
                         <div class="product-price">Op aanvraag</div>
                     </div>
-                    <a href="https://wa.me/31612345678" class="btn-order-via-contact">Vraag Nu</a>
+                    <button class="btn-order-via-contact" onclick="orderProduct('Exclusieve Parfums Voorraad', 'Op aanvraag')">Vraag Nu</button>
                 </div>
             </div>
         </div>
@@ -1483,7 +1582,7 @@
         
         <div class="contact-box">
             <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7;">Bel of App ons direct</p>
-            <a href="tel:+31612345678" class="contact-number">+31 (0)6 1234 5678</a>
+            <a href="tel:+32484308813" class="contact-number">0484 30 88 13</a>
         </div>
     </section>
 
@@ -1496,8 +1595,8 @@
             <div class="footer-col">
                 <h4>Contact & Service</h4>
                 <ul>
-                    <li><a href="tel:+31612345678">Call Service</a></li>
-                    <li><a href="https://wa.me/31612345678">WhatsApp Support</a></li>
+                    <li><a href="tel:+32484308813">Call Service</a></li>
+                    <li><a href="https://wa.me/32484308813">WhatsApp Support</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -1517,6 +1616,65 @@
     </footer>
 
     <script>
+        // LIGHTBOX FUNCTIONS
+        function openLightbox(imageSrc, productName, price) {
+            const modal = document.getElementById('lightboxModal');
+            const imgElement = document.getElementById('lightboxImage');
+            const nameElement = document.getElementById('lightboxProductName');
+            const priceElement = document.getElementById('lightboxProductPrice');
+            const orderBtn = document.getElementById('lightboxOrderBtn');
+
+            imgElement.src = imageSrc;
+            nameElement.textContent = productName;
+            priceElement.textContent = price;
+            
+            orderBtn.onclick = function() {
+                orderProduct(productName, price);
+            };
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Swipe down to close
+            let touchStart = 0;
+            let touchEnd = 0;
+
+            modal.addEventListener('touchstart', (e) => {
+                touchStart = e.changedTouches[0].screenY;
+            }, false);
+
+            modal.addEventListener('touchend', (e) => {
+                touchEnd = e.changedTouches[0].screenY;
+                if (touchEnd - touchStart > 100) {
+                    closeLightbox();
+                }
+            }, false);
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+
+        // Close lightbox on click outside image
+        document.getElementById('lightboxModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // ORDER PRODUCT FUNCTION
+        function orderProduct(productName, price) {
+            const whatsappNumber = '32484308813';
+            const message = `Hallo! Ik ben geïnteresseerd in: ${productName} (${price})`;
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        }
+
+        // MENU FUNCTIONS
         document.addEventListener("DOMContentLoaded", function () {
             const menu = document.getElementById("mobileMenu");
             const openBtn = document.getElementById("menuOpenBtn");
@@ -1566,4 +1724,4 @@
     </script>
 
 </body>
-</html>
+                    </html>
